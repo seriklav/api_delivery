@@ -11,6 +11,7 @@ use App\Http\Resources\Api\V1\Delivery\DeliveryResourceCollection;
 use App\Models\Delivery;
 use App\Services\Delivery\DeliveryService;
 use Illuminate\Http\JsonResponse;
+use OpenApi\Annotations as OA;
 use Symfony\Component\HttpFoundation\Response as ResponseAlias;
 
 class DeliveryController extends ApiController
@@ -23,6 +24,28 @@ class DeliveryController extends ApiController
 	}
 
 	/**
+	 *
+	 * @OA\Get(
+	 *      path="/api/v1/delivery",
+	 *      operationId="getDeliveryList",
+	 *      tags={"Delivery"},
+	 *      summary="Get delivery of company",
+	 *      description="Returns list of delivery",
+	 *      @OA\RequestBody(
+	 *          required=true,
+	 *          @OA\JsonContent(ref="#/components/schemas/GetDeliveryRequest")
+	 *      ),
+	 *      @OA\Response(
+	 *          response=200,
+	 *          description="Successful operation",
+	 *          @OA\JsonContent(ref="#/components/schemas/DeliveriesResource")
+	 *       ),
+	 *      @OA\Response(
+	 *          response=403,
+	 *          description="Forbidden"
+	 *      )
+	 * )
+	 *
 	 * Display a listing of the resource.
 	 *
 	 * @param GetDeliveryRequest $getDeliveryRequest
@@ -36,6 +59,31 @@ class DeliveryController extends ApiController
 	}
 
 	/**
+	 * @OA\Post(
+	 *      path="/api/v1/delivery",
+	 *      operationId="storeDelivery",
+	 *      tags={"Delivery"},
+	 *      summary="Store new delivery",
+	 *      description="Returns delivery data",
+	 *      @OA\RequestBody(
+	 *          required=true,
+	 *          @OA\JsonContent(ref="#/components/schemas/CreateDeliveryRequest")
+	 *      ),
+	 *      @OA\Response(
+	 *          response=201,
+	 *          description="Successful operation",
+	 *          @OA\JsonContent(ref="#/components/schemas/DeliveryResource")
+	 *       ),
+	 *      @OA\Response(
+	 *          response=400,
+	 *          description="Bad Request"
+	 *      ),
+	 *      @OA\Response(
+	 *          response=403,
+	 *          description="Forbidden"
+	 *      )
+	 * )
+	 *
 	 * Store a newly created resource in storage.
 	 *
 	 * @param CreateDeliveryRequest $createDeliveryRequest
@@ -51,6 +99,24 @@ class DeliveryController extends ApiController
 	}
 
 	/**
+	 *
+	 * @OA\Get(
+	 *      path="/api/v1/delivery/1",
+	 *      operationId="getOneDelivery",
+	 *      tags={"Delivery"},
+	 *      summary="Get one delivery",
+	 *      description="Returns one delivery",
+	 *      @OA\Response(
+	 *          response=200,
+	 *          description="Successful operation",
+	 *          @OA\JsonContent(ref="#/components/schemas/DeliveryResource")
+	 *       ),
+	 *      @OA\Response(
+	 *          response=403,
+	 *          description="Forbidden"
+	 *      )
+	 *     )
+	 *
 	 * Display the specified resource.
 	 *
 	 * @param Delivery $delivery
@@ -62,6 +128,32 @@ class DeliveryController extends ApiController
 	}
 
 	/**
+	 *
+	 * @OA\Put(
+	 *      path="/api/v1/delivery/1",
+	 *      operationId="updateDelivery",
+	 *      tags={"Delivery"},
+	 *      summary="Update delivery",
+	 *      description="Returns delivery data",
+	 *      @OA\RequestBody(
+	 *          required=true,
+	 *          @OA\JsonContent(ref="#/components/schemas/UpdateDeliveryRequest")
+	 *      ),
+	 *      @OA\Response(
+	 *          response=201,
+	 *          description="Successful operation",
+	 *          @OA\JsonContent(ref="#/components/schemas/DeliveryResource")
+	 *       ),
+	 *      @OA\Response(
+	 *          response=400,
+	 *          description="Bad Request"
+	 *      ),
+	 *      @OA\Response(
+	 *          response=403,
+	 *          description="Forbidden"
+	 *      )
+	 * )
+	 *
 	 * Update the specified resource in storage.
 	 *
 	 * @param UpdateDeliveryRequest $updateDeliveryRequest
@@ -79,6 +171,27 @@ class DeliveryController extends ApiController
 	}
 
 	/**
+	 *
+	 * @OA\Delete(
+	 *      path="/api/v1/delivery/1",
+	 *      operationId="deleteDelivery",
+	 *      tags={"Delivery"},
+	 *      summary="Delete delivery",
+	 *      description="Returns null",
+	 *      @OA\Response(
+	 *          response=204,
+	 *          description="HTTP NO CONTENT",
+	 *       ),
+	 *      @OA\Response(
+	 *          response=400,
+	 *          description="Bad Request"
+	 *      ),
+	 *      @OA\Response(
+	 *          response=403,
+	 *          description="Forbidden"
+	 *      )
+	 * )
+	 *
 	 * @param Delivery $delivery
 	 * @return JsonResponse
 	 */

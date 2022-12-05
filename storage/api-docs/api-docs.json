@@ -1,0 +1,701 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Test Delivery laravel",
+        "description": "This is documentation for Testing Delivery work with laravel",
+        "contact": {
+            "name": "Sergey Lavrinyuk",
+            "email": "lavrinyuk.serik@gmail.comm"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost/",
+            "description": "development environment"
+        },
+        {
+            "url": "https://yellow-media-lumen.herokuapp.com/",
+            "description": "heroku environment"
+        }
+    ],
+    "paths": {
+        "/api/v1/company": {
+            "get": {
+                "tags": [
+                    "Company"
+                ],
+                "summary": "Get list of company",
+                "description": "Returns list of compay",
+                "operationId": "getCompanyList",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/GetCompanyRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CompaniesResource"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Company"
+                ],
+                "summary": "Store new company",
+                "description": "Returns company data",
+                "operationId": "storeCompany",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateCompanyRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CompanyResource"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/v1/company/1": {
+            "get": {
+                "tags": [
+                    "Company"
+                ],
+                "summary": "Get one company",
+                "description": "Returns one compay",
+                "operationId": "getOneCompany",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CompanyResource"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Company"
+                ],
+                "summary": "Update company",
+                "description": "Returns company data",
+                "operationId": "updateCompany",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateCompanyRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CompanyResource"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Company"
+                ],
+                "summary": "Delete company",
+                "description": "Returns null",
+                "operationId": "deleteCompany",
+                "responses": {
+                    "204": {
+                        "description": "HTTP NO CONTENT"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/v1/delivery": {
+            "get": {
+                "tags": [
+                    "Delivery"
+                ],
+                "summary": "Get delivery of company",
+                "description": "Returns list of delivery",
+                "operationId": "getDeliveryList",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/GetDeliveryRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/DeliveriesResource"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Delivery"
+                ],
+                "summary": "Store new delivery",
+                "description": "Returns delivery data",
+                "operationId": "storeDelivery",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateDeliveryRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/DeliveryResource"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/v1/delivery/1": {
+            "get": {
+                "tags": [
+                    "Delivery"
+                ],
+                "summary": "Get one delivery",
+                "description": "Returns one delivery",
+                "operationId": "getOneDelivery",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/DeliveryResource"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Delivery"
+                ],
+                "summary": "Update delivery",
+                "description": "Returns delivery data",
+                "operationId": "updateDelivery",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateDeliveryRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/DeliveryResource"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Delivery"
+                ],
+                "summary": "Delete delivery",
+                "description": "Returns null",
+                "operationId": "deleteDelivery",
+                "responses": {
+                    "204": {
+                        "description": "HTTP NO CONTENT"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "ApiResponse": {
+                "description": "Response entity, response result uses this structure uniformly",
+                "properties": {
+                    "code": {
+                        "description": "response code",
+                        "type": "string"
+                    },
+                    "message": {
+                        "description": "response result prompt",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Company": {
+                "title": "Company",
+                "description": "Company model",
+                "properties": {
+                    "id": {
+                        "title": "id",
+                        "description": "ID",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "name": {
+                        "title": "name",
+                        "description": "Name of the new company",
+                        "type": "string",
+                        "example": "Dhl"
+                    },
+                    "code": {
+                        "title": "code",
+                        "description": "Unique code of the company",
+                        "type": "string",
+                        "example": "dhl"
+                    },
+                    "created_at": {
+                        "title": "created_at",
+                        "description": "Created At date of the company",
+                        "example": "2022-12-05 12:22:42"
+                    },
+                    "updated_at": {
+                        "title": "updated_at",
+                        "description": "Updated At date of the company",
+                        "example": "2022-12-05 12:22:42"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "Company"
+                }
+            },
+            "Delivery": {
+                "title": "Delivery",
+                "description": "Delivery model",
+                "properties": {
+                    "id": {
+                        "title": "id",
+                        "description": "ID",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "company_id": {
+                        "title": "company_id",
+                        "description": "Company identify",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "weight": {
+                        "title": "weight",
+                        "description": "Weight of package",
+                        "type": "number",
+                        "format": "double(8, 2)",
+                        "example": 65.8
+                    },
+                    "price": {
+                        "title": "price",
+                        "description": "Price of package",
+                        "type": "number",
+                        "format": "double(8, 2)",
+                        "example": 65.8
+                    },
+                    "description": {
+                        "title": "description",
+                        "description": "Description of the new Delivery",
+                        "type": "string",
+                        "example": "test delivery"
+                    },
+                    "created_at": {
+                        "title": "created_at",
+                        "description": "Created At date of the company",
+                        "example": "2022-12-05 12:22:42"
+                    },
+                    "updated_at": {
+                        "title": "updated_at",
+                        "description": "Updated At date of the company",
+                        "example": "2022-12-05 12:22:42"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "Delivery"
+                }
+            },
+            "CreateCompanyRequest": {
+                "title": "Store Company request",
+                "description": "Store Company request body data",
+                "required": [
+                    "name",
+                    "code"
+                ],
+                "properties": {
+                    "name": {
+                        "title": "name",
+                        "description": "Name of the new company",
+                        "type": "string",
+                        "example": "Dhl"
+                    },
+                    "code": {
+                        "title": "code",
+                        "description": "Unique code of the company",
+                        "type": "string",
+                        "example": "dhl"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "CreateCompanyRequest"
+                }
+            },
+            "GetCompanyRequest": {
+                "title": "Get Company request",
+                "description": "Get Company request body data",
+                "properties": {
+                    "column": {
+                        "title": "column",
+                        "description": "column for sorting ('id', 'name', 'created_at', 'updated_at')",
+                        "type": "string",
+                        "example": "id"
+                    },
+                    "order_by": {
+                        "title": "order_by",
+                        "description": "Sorting type ('asc', 'desc')",
+                        "type": "string",
+                        "example": "asc"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "GetCompanyRequest"
+                }
+            },
+            "UpdateCompanyRequest": {
+                "title": "Update Company request",
+                "description": "Store Company request body data",
+                "required": [
+                    "name",
+                    "code"
+                ],
+                "properties": {
+                    "name": {
+                        "title": "name",
+                        "description": "Name of the new company",
+                        "type": "string",
+                        "example": "Dhl"
+                    },
+                    "code": {
+                        "title": "code",
+                        "description": "Unique code of the company",
+                        "type": "string",
+                        "example": "dhl"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "UpdateCompanyRequest"
+                }
+            },
+            "CreateDeliveryRequest": {
+                "title": "Store Delivery request",
+                "description": "Store Delivery request body data",
+                "required": [
+                    "company_id",
+                    "weight",
+                    "price",
+                    "description"
+                ],
+                "properties": {
+                    "company_id": {
+                        "title": "company_id",
+                        "description": "Company identify",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "weight": {
+                        "title": "weight",
+                        "description": "Weight of package",
+                        "type": "number",
+                        "format": "double(8, 2)",
+                        "example": 65.8
+                    },
+                    "price": {
+                        "title": "price",
+                        "description": "Price of package",
+                        "type": "number",
+                        "format": "double(8, 2)",
+                        "example": 65.8
+                    },
+                    "description": {
+                        "title": "description",
+                        "description": "Description of the new Delivery",
+                        "type": "string",
+                        "example": "test delivery"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "CreateDeliveryRequest"
+                }
+            },
+            "GetDeliveryRequest": {
+                "title": "Get Delivery request",
+                "description": "Get Delivery request body data",
+                "properties": {
+                    "company_id": {
+                        "title": "company_id",
+                        "description": "optional field for search by company_id",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "weight": {
+                        "title": "weight",
+                        "description": "optional field for search by weight",
+                        "type": "number",
+                        "format": "float",
+                        "example": "1"
+                    },
+                    "price": {
+                        "title": "price",
+                        "description": "optional field for search by price",
+                        "type": "number",
+                        "format": "float",
+                        "example": "1"
+                    },
+                    "column": {
+                        "title": "column",
+                        "description": "column for sorting ('id', 'name', 'created_at', 'updated_at')",
+                        "type": "string",
+                        "example": "id"
+                    },
+                    "order_by": {
+                        "title": "order_by",
+                        "description": "Sorting type ('asc', 'desc')",
+                        "type": "string",
+                        "example": "asc"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "GetDeliveryRequest"
+                }
+            },
+            "UpdateDeliveryRequest": {
+                "title": "Store Delivery request",
+                "description": "Store Delivery request body data",
+                "required": [
+                    "company_id",
+                    "weight",
+                    "price",
+                    "description"
+                ],
+                "properties": {
+                    "company_id": {
+                        "title": "company_id",
+                        "description": "Company identify",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "weight": {
+                        "title": "weight",
+                        "description": "Weight of package",
+                        "type": "number",
+                        "format": "double(8, 2)",
+                        "example": 65.8
+                    },
+                    "price": {
+                        "title": "price",
+                        "description": "Price of package",
+                        "type": "number",
+                        "format": "double(8, 2)",
+                        "example": 65.8
+                    },
+                    "description": {
+                        "title": "description",
+                        "description": "Description of the new Delivery",
+                        "type": "string",
+                        "example": "test delivery"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "CreateDeliveryRequest"
+                }
+            },
+            "CompaniesResource": {
+                "title": "CompaniesResource",
+                "description": "Companies resource",
+                "properties": {
+                    "data": {
+                        "title": "Data",
+                        "description": "Data wrapper",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Company"
+                        }
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "CompaniesResource"
+                }
+            },
+            "CompanyResource": {
+                "title": "CompanyResource",
+                "description": "Company resource",
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/Company"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "CompanyResource"
+                }
+            },
+            "DeliveriesResource": {
+                "title": "DeliveriesResource",
+                "description": "Deliveries resource",
+                "properties": {
+                    "data": {
+                        "title": "Data",
+                        "description": "Data wrapper",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Delivery"
+                        }
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "DeliveriesResource"
+                }
+            },
+            "DeliveryResource": {
+                "title": "DeliveryResource",
+                "description": "Company resource",
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/Delivery"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "DeliveryResource"
+                }
+            }
+        }
+    }
+}

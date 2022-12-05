@@ -15,7 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['prefix' => 'v1'], function () {
-	Route::apiResource('company', CompanyController::class);
-	Route::apiResource('delivery', DeliveryController::class);
+Route::group(['prefix' => 'api', 'namespace' => 'Api'], function () {
+	Route::group(['prefix' => 'v1', 'namespace' => 'V1'], function (){
+		Route::apiResource('company', CompanyController::class);
+		Route::apiResource('delivery', DeliveryController::class);
+	});
 });

@@ -46,3 +46,8 @@
 - **DHL** за каждый 100 грамм берет 0,33 EUR, вес посылки округляется вверх до ближайших 100 грамм. 
 - Для сравнения стоимости курс евро жестко фиксируем: 1,00 EUR = 0,97 USD. 
 - Необходимо создать простое API, для ресурса Delivery на 3 endpoint'a
+
+
+# URL's
+- [x] POSTMAMN: https://documenter.getpostman.com/view/4732592/2s8YzMZkmL
+- [x] HEROKU: https://yellow-media-lumen.herokuapp.com/api/documentation
